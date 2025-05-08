@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
@@ -49,28 +49,29 @@ public class BaseTest {
         driver = new FirefoxDriver(options);
         // Mở trình duyệt ở chế độ toàn màn hình
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Tăng thời gian chờ lên 30 giây
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Tăng thời gian chờ lên 30 giây
 
-        // Xử lý cookie popup
+        driver.get("https://hasaki.vn/");
+        // Wait for the search box to be visible (primary test target)
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search")));
+
+        // Try to handle cookie popup, but don't block if it doesn't appear quickly
         try {
-            driver.get("https://hasaki.vn/");
-            System.out.println("Đang chờ cookie popup xuất hiện...");
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='cookieBanner']")));
-            System.out.println("Đã tìm thấy cookie popup với XPath: //div[@id='cookieBanner'].");
-            WebElement rejectButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='rejectCookies']")));
-            System.out.println("Đã tìm thấy nút 'Từ chối' với XPath: //button[@id='rejectCookies'].");
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", rejectButton);
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+            WebElement rejectButton = shortWait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='rejectCookies']"))
+            );
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", rejectButton);
             System.out.println("Đã từ chối cookie popup.");
         } catch (Exception e) {
-            System.out.println("Không thể từ chối cookie popup: " + e.getMessage());
+            System.out.println("Không thấy hoặc không thể từ chối cookie popup, tiếp tục...");
         }
     }
 
-//    @AfterTest
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    // @AfterMethod
+    // public void tearDown() {
+    //     if (driver != null) {
+    //         driver.quit();
+    //     }
+    // }
 }

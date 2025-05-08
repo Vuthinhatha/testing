@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class SearchUtil {
     public static void search(WebDriver driver, String keyword) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         // Nhập từ khóa vào ô tìm kiếm
         try {

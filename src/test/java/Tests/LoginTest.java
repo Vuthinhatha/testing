@@ -38,7 +38,5 @@ public class LoginTest extends BaseTest {
         String pageTitle = driver.getTitle();
         Assert.assertNotNull(pageTitle, "Tiêu đề trang không được null!");
         Assert.assertTrue(pageTitle.contains("Hasaki"), "Tiêu đề trang không chứa từ 'Hasaki'!");
-
-
     }
 }
