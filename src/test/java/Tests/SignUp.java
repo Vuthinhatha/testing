@@ -16,6 +16,8 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Random;
 
+import org.openqa.selenium.support.ui.Select;
+
 public class SignUp extends BaseTest {
 
     @Test
@@ -33,12 +35,14 @@ public class SignUp extends BaseTest {
             }
 
             // Step 2: Open the site and sign up
-            WebElement signUpLink = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
+            WebElement signUpLink = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
             signUpLink.click();
 
             // Step 3: Fill the email and trigger verification
             WebElement emailInput = driver.findElement(By.name("email"));
             emailInput.sendKeys(tempEmail);
+            Thread.sleep(3000);
             WebElement getCodeButton = driver.findElement(By.id("verifyUserName")); // Adjust selector if needed
             getCodeButton.click();
 
@@ -51,20 +55,40 @@ public class SignUp extends BaseTest {
             String fullname = "Nguyen Van A";
 
             // Step 5: Fill verification code
-            WebElement codeInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".codeRegister")));
+            WebElement codeInput = wait
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".codeRegister")));
             codeInput.sendKeys(code);
 
             System.out.println("Filled verification code: " + code);
 
             // Step 6: Fill password
-            WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(".reg-password")));
+            WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-password")));
             passwordInput.sendKeys(passwordString);
             System.out.println("Filled password: " + passwordString);
 
             // Step 7: Fill fullname
-            WebElement fullnameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(".reg-password")));
+            WebElement fullnameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-fullname")));
             fullnameInput.sendKeys(fullname);
             System.out.println("Filled fullname: " + fullname);
+            // Select day
+            WebElement daySelectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-day")));
+            Select daySelect = new Select(daySelectElement);
+            daySelect.selectByVisibleText("15"); // select 15th day
+
+            // Select month
+            WebElement monthSelectElement = wait
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-month")));
+            Select monthSelect = new Select(monthSelectElement);
+            monthSelect.selectByValue("5"); // May (value="5")
+
+            // Select year
+            WebElement yearSelectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-year")));
+            Select yearSelect = new Select(yearSelectElement);
+            yearSelect.selectByVisibleText("1995"); // select 1995
+
+            //click sign up
+            WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
+            signUp.click();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,8 +98,10 @@ public class SignUp extends BaseTest {
     private String generateRandomEmail() {
         Random random = new Random();
         StringBuilder email = new StringBuilder();
-        for (int i = 0; i < 3; i++) email.append(random.nextInt(10));
-        for (int i = 0; i < 5; i++) email.append((char) ('a' + random.nextInt(26)));
+        for (int i = 0; i < 3; i++)
+            email.append(random.nextInt(10));
+        for (int i = 0; i < 5; i++)
+            email.append((char) ('a' + random.nextInt(26)));
         return email.append("@chefalicious.com").toString();
     }
 
