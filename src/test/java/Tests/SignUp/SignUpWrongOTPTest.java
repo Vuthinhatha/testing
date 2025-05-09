@@ -1,4 +1,4 @@
-package Tests;
+package Tests.SignUp;
 
 import Base.BaseTest;
 import org.openqa.selenium.By;
