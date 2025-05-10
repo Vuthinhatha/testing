@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class Equal6DigitCode extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(Equal6DigitCode.class);
 
     @Test
     public void openSignUpAndVerify() {

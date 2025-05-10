@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class CodeContainBlank extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(CodeContainBlank.class);
 
     @Test
     public void openSignUpAndVerify() {
@@ -60,7 +60,7 @@ public class SignUpTest extends BaseTest {
             // Step 5: Fill verification code
             WebElement codeInput = wait
                     .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".codeRegister")));
-            codeInput.sendKeys(code);
+            codeInput.sendKeys(code + " ");
 
             logger.info("Filled verification code: {}", code);
 

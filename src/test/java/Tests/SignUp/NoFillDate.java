@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class NoFillDate extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(NoFillDate.class);
 
     @Test
     public void openSignUpAndVerify() {
@@ -73,21 +73,6 @@ public class SignUpTest extends BaseTest {
             WebElement fullnameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-fullname")));
             fullnameInput.sendKeys(fullname);
             logger.info("Filled fullname: {}", fullname);
-            // Select day
-            WebElement daySelectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-day")));
-            Select daySelect = new Select(daySelectElement);
-            daySelect.selectByVisibleText("15"); // select 15th day
-
-            // Select month
-            WebElement monthSelectElement = wait
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-month")));
-            Select monthSelect = new Select(monthSelectElement);
-            monthSelect.selectByValue("5"); // May (value="5")
-
-            // Select year
-            WebElement yearSelectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-year")));
-            Select yearSelect = new Select(yearSelectElement);
-            yearSelect.selectByVisibleText("1995"); // select 1995
 
             //click sign up
             WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));

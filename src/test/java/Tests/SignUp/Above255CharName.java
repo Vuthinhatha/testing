@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class Above255CharName extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(Above255CharName.class);
 
     @Test
     public void openSignUpAndVerify() {
@@ -55,7 +55,7 @@ public class SignUpTest extends BaseTest {
             String messageText = TempMailUtils.getMessageText(token, messageId);
             String code = TempMailUtils.extractCode(messageText);
             String passwordString = "flyingpig1234";
-            String fullname = "Nguyen Van A";
+            String fullname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
             // Step 5: Fill verification code
             WebElement codeInput = wait
@@ -89,17 +89,25 @@ public class SignUpTest extends BaseTest {
             Select yearSelect = new Select(yearSelectElement);
             yearSelect.selectByVisibleText("1995"); // select 1995
 
-            //click sign up
-            WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
+            // click sign up
+            WebElement signUp = wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
             signUp.click();
 
-            boolean isInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                By.cssSelector("a.popup-register")));
-        
-        Assert.assertTrue(isInvisible, "Element '.popup-register' should not be visible.");
-        
-        logger.info("Test passed: '.popup-register' is not visible as expected.");
-        
+            // Wait for the error message to appear
+            // WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            //         By.id("email-error")));
+            // Wait for the error message to appear
+            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.cssSelector("div.showRegisterMessage.text-danger.alert.alert-danger")));
+
+            // Validate the error message text
+            String expectedText = "Đăng ký không thành công vui lòng thử lại sau";
+            String actualText = errorMessage.getText().trim();
+
+            Assert.assertEquals(actualText, expectedText,
+                    "Expected error message: \"" + expectedText + "\", but got: \"" + actualText + "\"");
+
+            logger.info("Test passed: Correct error message displayed.");
 
         } catch (Exception e) {
             e.printStackTrace();

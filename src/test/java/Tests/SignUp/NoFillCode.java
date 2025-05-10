@@ -16,53 +16,30 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class NoFillCode extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(SignUpWrongOTPTest.class);
 
     @Test
     public void openSignUpAndVerify() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-            // Step 1: Create temp email
-            String tempEmail = TempMailUtils.generateRandomEmail();
-            String password = "12345";
-            TempMailUtils.createAccount(tempEmail, password);
-            String token = TempMailUtils.getToken(tempEmail, password);
-            if (token == null) {
-                throw new RuntimeException("Could not get token.");
-            }
-
-            // Step 2: Open the site and sign up
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
             signUpLink.click();
 
-            // Step 3: Fill the email and trigger verification
             WebElement emailInput = driver.findElement(By.name("email"));
-            emailInput.sendKeys(tempEmail);
-            Thread.sleep(3000);
-            WebElement getCodeButton = driver.findElement(By.id("verifyUserName")); // Adjust selector if needed
-            getCodeButton.click();
+            emailInput.sendKeys("0966265795");
 
-            // Step 4: Wait for email and extract code
-            Thread.sleep(10000); // wait for email to arrive
-            String messageId = TempMailUtils.waitForMessageId(token);
-            if (messageId == null || messageId.trim().equalsIgnoreCase("No email message")) {
-                Assert.fail("Failed to receive verification email. messageId: " + messageId);
-            }
-
-            String messageText = TempMailUtils.getMessageText(token, messageId);
-            String code = TempMailUtils.extractCode(messageText);
             String passwordString = "flyingpig1234";
             String fullname = "Nguyen Van A";
 
             // Step 5: Fill verification code
             WebElement codeInput = wait
                     .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".codeRegister")));
-            codeInput.sendKeys(code);
+            codeInput.sendKeys("");
 
-            logger.info("Filled verification code: {}", code);
+            logger.info("Filled verification code: {}", "");
 
             // Step 6: Fill password
             WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-password")));
@@ -93,13 +70,18 @@ public class SignUpTest extends BaseTest {
             WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
             signUp.click();
 
-            boolean isInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                By.cssSelector("a.popup-register")));
-        
-        Assert.assertTrue(isInvisible, "Element '.popup-register' should not be visible.");
-        
-        logger.info("Test passed: '.popup-register' is not visible as expected.");
-        
+            // Wait for the error message to appear
+            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.id("otp-error")));
+
+            // Validate the error message text
+            String expectedText = "Nhập mã xác thực 6 số !";
+            String actualText = errorMessage.getText().trim();
+
+            Assert.assertEquals(actualText, expectedText,
+                    "Expected error message: \"" + expectedText + "\", but got: \"" + actualText + "\"");
+
+            logger.info("Test passed: Correct error message displayed.");
 
         } catch (Exception e) {
             e.printStackTrace();

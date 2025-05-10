@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpTest extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SignUpTest.class);
+public class ContainBlankName extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(ContainBlankName.class);
 
     @Test
     public void openSignUpAndVerify() {
@@ -55,7 +55,7 @@ public class SignUpTest extends BaseTest {
             String messageText = TempMailUtils.getMessageText(token, messageId);
             String code = TempMailUtils.extractCode(messageText);
             String passwordString = "flyingpig1234";
-            String fullname = "Nguyen Van A";
+            String fullname = "Vũ Hạ";
 
             // Step 5: Fill verification code
             WebElement codeInput = wait

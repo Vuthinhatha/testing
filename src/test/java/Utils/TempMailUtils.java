@@ -1,8 +1,12 @@
 package Utils;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -82,7 +86,12 @@ public class TempMailUtils {
     }
 
     public static String extractCode(String text) {
-        return text.replaceAll("(?s).*?(\\d{6}).*", "$1");
+        Pattern pattern = Pattern.compile("vui lòng nhập mã gồm\\s*6 chữ số trên Trang xác minh Email:\\s*(\\d{6})");
+        Matcher matcher = pattern.matcher(text);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return null; // or throw exception if preferred
     }
 
     public static String readResponse(HttpURLConnection con) throws IOException {

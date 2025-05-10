@@ -1,8 +1,11 @@
-package Tests;
+package Tests.LogIn;
 
 
 import Base.BaseTest;
 import Utils.LoginSetup;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,16 +14,19 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTest extends BaseTest {
+public class Under64Mail extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(Under64Mail.class);
 
     @Test
     public void testLoginSuccess() {
+        logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
+        String username = "0966265795";
+        String password = "Nhatha1112@";
         // Gọi hàm login từ LoginSetup
         try {
-            LoginSetup.login(driver, "0966265795", "Nhatha1112@"); // Thay bằng email và mật khẩu thực tế
+            LoginSetup.login(driver, username, password); // Thay bằng email và mật khẩu thực tế
         } catch (Exception e) {
             Assert.fail("Đăng nhập thất bại: " + e.getMessage());
         }
