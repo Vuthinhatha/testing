@@ -55,7 +55,7 @@ public class Above255CharName extends BaseTest {
             String messageText = TempMailUtils.getMessageText(token, messageId);
             String code = TempMailUtils.extractCode(messageText);
             String passwordString = "flyingpig1234";
-            String fullname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            String fullname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
             // Step 5: Fill verification code
             WebElement codeInput = wait
@@ -101,7 +101,7 @@ public class Above255CharName extends BaseTest {
                     By.cssSelector("div.showRegisterMessage.text-danger.alert.alert-danger")));
 
             // Validate the error message text
-            String expectedText = "Đăng ký không thành công vui lòng thử lại sau";
+            String expectedText = "Đăng ký không thành công, vui lòng thử lại sau.";
             String actualText = errorMessage.getText().trim();
 
             Assert.assertEquals(actualText, expectedText,

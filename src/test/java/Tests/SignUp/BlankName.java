@@ -2,6 +2,7 @@ package Tests.SignUp;
 
 import Base.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,14 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
 import Utils.TempMailUtils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.TimeoutException;
 
 public class BlankName extends BaseTest {
     private static final Logger logger = LogManager.getLogger(BlankName.class);
@@ -26,22 +25,45 @@ public class BlankName extends BaseTest {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
+            // Step 1: Create temp email
+            String tempEmail = TempMailUtils.generateRandomEmail();
+            String password = "12345";
+            TempMailUtils.createAccount(tempEmail, password);
+            String token = TempMailUtils.getToken(tempEmail, password);
+            if (token == null) {
+                throw new RuntimeException("Could not get token.");
+            }
+
+            // Step 2: Open the site and sign up
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
             signUpLink.click();
 
+            // Step 3: Fill the email and trigger verification
             WebElement emailInput = driver.findElement(By.name("email"));
-            emailInput.sendKeys("0966265796");
+            emailInput.sendKeys(tempEmail);
+            Thread.sleep(3000);
+            WebElement getCodeButton = driver.findElement(By.id("verifyUserName")); // Adjust selector if needed
+            getCodeButton.click();
 
-            String passwordString = "abc123";
-            String fullname = "        ";
+            // Step 4: Wait for email and extract code
+            Thread.sleep(10000); // wait for email to arrive
+            String messageId = TempMailUtils.waitForMessageId(token);
+            if (messageId == null || messageId.trim().equalsIgnoreCase("No email message")) {
+                Assert.fail("Failed to receive verification email. messageId: " + messageId);
+            }
+
+            String messageText = TempMailUtils.getMessageText(token, messageId);
+            String code = TempMailUtils.extractCode(messageText);
+            String passwordString = "flyingpig1234";
+            String fullname = "";
 
             // Step 5: Fill verification code
             WebElement codeInput = wait
                     .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".codeRegister")));
-            codeInput.sendKeys("123456");
+            codeInput.sendKeys(code);
 
-            logger.info("Filled verification code: {}", "");
+            logger.info("Filled verification code: {}", code);
 
             // Step 6: Fill password
             WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reg-password")));
@@ -68,14 +90,14 @@ public class BlankName extends BaseTest {
             Select yearSelect = new Select(yearSelectElement);
             yearSelect.selectByVisibleText("1995"); // select 1995
 
-            //click sign up
-            WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
+            // click sign up
+            WebElement signUp = wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
             signUp.click();
 
             try {
                 WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
                         By.id("email-error")));
-                String expectedText = "Họ tên sai định dạng";
+                String expectedText = "Vui lòng nhập họ tên !";
                 String actualText = errorMessage.getText().trim();
             
                 Assert.assertEquals(actualText, expectedText,
@@ -85,7 +107,6 @@ public class BlankName extends BaseTest {
             } catch (TimeoutException e) {
                 Assert.fail("Expected error message element with ID 'email-error' was not visible within timeout.");
             }
-            
 
         } catch (Exception e) {
             e.printStackTrace();
