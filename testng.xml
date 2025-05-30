@@ -1,25 +1,12 @@
-<suite name="MySuite">
-  <test name="Login Tests">
-      <packages>
-          <package name="Tests.Login"/>
-      </packages>
-  </test>
-
-  <test name="Sign Up Tests">
-      <packages>
-          <package name="Tests.SignUp"/>
-      </packages>
-  </test>
-  
-  <test name="Cart Tests">
-      <packages>
-          <package name="Tests.Cart"/>
-      </packages>
-  </test>
-
-  <test name="Change Password Tests">
-      <packages>
-          <package name="Tests.ChangePassword"/>
-      </packages>
-  </test>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LoginTestSuite">
+    <listeners>
+        <listener class-name="ExtentTestNGListener"/>
+    </listeners>
+    <test name="LoginTests">
+        <classes>
+            <class name="Tests.LogIn.Login"/>
+        </classes>
+    </test>
 </suite>
