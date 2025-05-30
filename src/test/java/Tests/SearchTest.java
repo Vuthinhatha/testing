@@ -1,7 +1,6 @@
 package Tests;
 
 import Base.BaseTest;
-import Utils.LoginSetup;
 import Utils.SearchUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -37,11 +36,10 @@ public class SearchTest extends BaseTest {
 
             // Wait for the <h4 class="txt_999"> element to be visible
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-            wait.pollingEvery(Duration.ofMillis(100));  // Poll faster than default 500ms
+            wait.pollingEvery(Duration.ofMillis(100)); // Poll faster than default 500ms
             WebElement resultCountElement = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h4.txt_999"))
-            );
-            
+                    ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h4.txt_999")));
+
             // Get the text and check with regex
             String resultText = resultCountElement.getText();
             logger.info("Result count text: {}", resultText);
@@ -51,7 +49,7 @@ public class SearchTest extends BaseTest {
             // Pattern: (number sản phẩm)
             Pattern pattern = Pattern.compile("\\(\\d+ sản phẩm\\)");
             Assert.assertTrue(pattern.matcher(resultText).matches(),
-                "Result count should match the pattern '(number sản phẩm)' but was: " + resultText);
+                    "Result count should match the pattern '(number sản phẩm)' but was: " + resultText);
 
         } catch (Exception e) {
             logger.error("Search test failed: {}", e.getMessage());
