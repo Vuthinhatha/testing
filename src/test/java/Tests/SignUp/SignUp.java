@@ -26,7 +26,7 @@ public class SignUp extends BaseTest {
     @Test
     public void legitDate() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -63,7 +63,7 @@ public class SignUp extends BaseTest {
     @Test
     public void legitName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -149,7 +149,7 @@ public class SignUp extends BaseTest {
     @Test
     public void longPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -222,7 +222,7 @@ public class SignUp extends BaseTest {
     @Test
     public void maleCheck() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -256,7 +256,7 @@ public class SignUp extends BaseTest {
     @Test
     public void femaleCheck() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -290,7 +290,7 @@ public class SignUp extends BaseTest {
     @Test
     public void noFillCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -359,7 +359,7 @@ public class SignUp extends BaseTest {
     @Test
     public void noFillDate() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -430,7 +430,7 @@ public class SignUp extends BaseTest {
     @Test
     public void noFillName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -503,7 +503,7 @@ public class SignUp extends BaseTest {
     @Test
     public void noFillPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -575,7 +575,7 @@ public class SignUp extends BaseTest {
     @Test
     public void over10DigitPhone() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -613,7 +613,7 @@ public class SignUp extends BaseTest {
     @Test
     public void over64CharMail() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -654,7 +654,7 @@ public class SignUp extends BaseTest {
     @Test
     public void shortPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -727,7 +727,7 @@ public class SignUp extends BaseTest {
     @Test
     public void above6DigitCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -800,7 +800,7 @@ public class SignUp extends BaseTest {
     @Test
     public void above255CharName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -896,7 +896,7 @@ public class SignUp extends BaseTest {
     @Test
     public void blankCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -970,7 +970,7 @@ public class SignUp extends BaseTest {
     @Test
     public void blankName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1063,7 +1063,7 @@ public class SignUp extends BaseTest {
     @Test
     public void blankPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1136,7 +1136,7 @@ public class SignUp extends BaseTest {
     @Test
     public void codeContainBlank() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1222,7 +1222,7 @@ public class SignUp extends BaseTest {
     @Test
     public void containBlankName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1308,7 +1308,7 @@ public class SignUp extends BaseTest {
     @Test
     public void correctPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1394,7 +1394,7 @@ public class SignUp extends BaseTest {
     @Test
     public void equal6DigitCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1480,7 +1480,7 @@ public class SignUp extends BaseTest {
     @Test
     public void equal6LengthPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1566,7 +1566,7 @@ public class SignUp extends BaseTest {
     @Test
     public void equal10DigitPhone() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1601,7 +1601,7 @@ public class SignUp extends BaseTest {
     @Test
     public void equal64CharMail() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1637,7 +1637,7 @@ public class SignUp extends BaseTest {
     @Test
     public void equal255CharName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1723,7 +1723,7 @@ public class SignUp extends BaseTest {
     @Test
     public void from6to32Password() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -1809,7 +1809,7 @@ public class SignUp extends BaseTest {
     @Test
     public void invalidDate() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1846,7 +1846,7 @@ public class SignUp extends BaseTest {
     @Test
     public void blankMailInput() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1881,7 +1881,7 @@ public class SignUp extends BaseTest {
     @Test
     public void invalidMailInput() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1916,7 +1916,7 @@ public class SignUp extends BaseTest {
     @Test
     public void invalidPhoneInput() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1951,7 +1951,7 @@ public class SignUp extends BaseTest {
     @Test
     public void spaceAroundMailInput() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -1986,7 +1986,7 @@ public class SignUp extends BaseTest {
     @Test
     public void spaceMailInput() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2021,7 +2021,7 @@ public class SignUp extends BaseTest {
     @Test
     public void wrongOTP() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -2112,7 +2112,7 @@ public class SignUp extends BaseTest {
     @Test
     public void specialCharCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2185,7 +2185,7 @@ public class SignUp extends BaseTest {
     @Test
     public void specialCharName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2255,7 +2255,7 @@ public class SignUp extends BaseTest {
     @Test
     public void true32LongPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -2341,7 +2341,7 @@ public class SignUp extends BaseTest {
     @Test
     public void undefinedCheck() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2375,7 +2375,7 @@ public class SignUp extends BaseTest {
     @Test
     public void under6DigitCode() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2448,7 +2448,7 @@ public class SignUp extends BaseTest {
     @Test
     public void under10DigitPhone() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2486,7 +2486,7 @@ public class SignUp extends BaseTest {
     @Test
     public void under64CharMail() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2522,7 +2522,7 @@ public class SignUp extends BaseTest {
     @Test
     public void under255CharName() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -2608,7 +2608,7 @@ public class SignUp extends BaseTest {
     @Test
     public void usedPhone() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));
@@ -2681,7 +2681,7 @@ public class SignUp extends BaseTest {
     @Test
     public void veryShortPassword() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             WebElement signUpLink = wait
                     .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.popup-register")));

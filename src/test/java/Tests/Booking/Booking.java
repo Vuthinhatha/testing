@@ -24,7 +24,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void noFillPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -57,7 +57,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void blankPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -88,7 +88,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void containBlankPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -119,7 +119,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void invalidPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -150,7 +150,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void phoneNotAllowMoreThan10Digits() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -181,7 +181,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void under10DigitPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -212,7 +212,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void noFillName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -245,7 +245,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void blankName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -276,7 +276,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void specialCharacterName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -307,7 +307,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void nameNotAllowMoreThan50Characters() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -340,7 +340,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void noSelectLocale() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -366,7 +366,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void noFillService() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -395,7 +395,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void blankService() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -429,7 +429,7 @@ public class Booking extends BaseTest {
     // fail
     @Test
     public void specialCharacterService() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -462,7 +462,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void noSelectDate() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -495,7 +495,7 @@ public class Booking extends BaseTest {
 
     @Test
     public void validBooking() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             LoginSetup.login(driver, "0966265795", "Nhatha1112@");

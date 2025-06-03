@@ -19,7 +19,7 @@ public class Login extends BaseTest {
 
     @Test
     public void above10DigitPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "098563826482764824";
         String password = "Nhatha1112@";
@@ -50,7 +50,7 @@ public class Login extends BaseTest {
 
     @Test
     public void above32CharPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
@@ -81,7 +81,7 @@ public class Login extends BaseTest {
 
     @Test
     public void above64CharMail() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com";
         String password = "Nhatha1112@";
@@ -112,7 +112,7 @@ public class Login extends BaseTest {
 
     @Test
     public void blankMail() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "       ";
         String password = "Nhatha1112@";
@@ -143,7 +143,7 @@ public class Login extends BaseTest {
 
     @Test
     public void blankPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "       ";
@@ -174,7 +174,7 @@ public class Login extends BaseTest {
 
     @Test
     public void containBlankPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "abc def";
@@ -207,7 +207,7 @@ public class Login extends BaseTest {
     public void equal6Char() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "123456";
         // Gọi hàm login từ LoginSetup
@@ -237,7 +237,7 @@ public class Login extends BaseTest {
     public void equal10DigitPhone() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "Nhatha1112@";
         // Gọi hàm login từ LoginSetup
@@ -267,7 +267,7 @@ public class Login extends BaseTest {
     public void equal32CharPassword() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         // Gọi hàm login từ LoginSetup
@@ -295,7 +295,7 @@ public class Login extends BaseTest {
 
     @Test
     public void equal64CharMail() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com";
         String password = "Nhatha1112@";
@@ -328,7 +328,7 @@ public class Login extends BaseTest {
     public void legitLogin() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "Nhatha1112@";
         // Gọi hàm login từ LoginSetup
@@ -356,7 +356,7 @@ public class Login extends BaseTest {
 
     @Test
     public void mailContainBlank() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Chuỗi có khoảng trắng dư thừa (nên gây lỗi đăng nhập)
         String username = " 0966265795 ";
@@ -384,7 +384,7 @@ public class Login extends BaseTest {
 
     @Test
     public void noFillBoth() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "";
         String password = "";
@@ -415,7 +415,7 @@ public class Login extends BaseTest {
 
     @Test
     public void noFillPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "";
@@ -446,7 +446,7 @@ public class Login extends BaseTest {
 
     @Test
     public void under6CharPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "abc";
@@ -477,7 +477,7 @@ public class Login extends BaseTest {
 
     @Test
     public void under10DigitPhone() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "098";
         String password = "Nhatha1112@";
@@ -508,7 +508,7 @@ public class Login extends BaseTest {
 
     @Test
     public void under32CharPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "0966265795";
         String password = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa";
@@ -541,7 +541,7 @@ public class Login extends BaseTest {
     public void under64Mail() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "Nhatha1112@";
         // Gọi hàm login từ LoginSetup
@@ -569,7 +569,7 @@ public class Login extends BaseTest {
 
     @Test
     public void unmatchedMail() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String username = "Vuha#$gmail.com";
         String password = "Nhatha1112@";

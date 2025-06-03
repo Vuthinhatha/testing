@@ -1,6 +1,5 @@
 package Tests.LogIn;
 
-
 import Base.BaseTest;
 import Utils.LoginSetup;
 
@@ -21,7 +20,7 @@ public class LoginTest extends BaseTest {
     public void testLoginSuccess() {
         logger.info("Bắt đầu test đăng nhập thành công");
         // Khởi tạo WebDriverWait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String username = "0966265795";
         String password = "Nhatha1112@";
         // Gọi hàm login từ LoginSetup
@@ -34,7 +33,8 @@ public class LoginTest extends BaseTest {
         // Kiểm tra đăng nhập thành công
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//a[contains(text(), 'Tài khoản')]"))); // Selector cho phần tử chỉ xuất hiện sau khi đăng nhập
+                    By.xpath("//a[contains(text(), 'Tài khoản')]"))); // Selector cho phần tử chỉ xuất hiện sau khi đăng
+                                                                      // nhập
             System.out.println("Đăng nhập thành công! Phần tử 'Tài khoản' được tìm thấy.");
         } catch (Exception e) {
             Assert.fail("Không tìm thấy phần tử 'Tài khoản'. Đăng nhập không thành công: " + e.getMessage());

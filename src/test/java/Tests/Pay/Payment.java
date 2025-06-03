@@ -22,7 +22,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void noFillPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -69,7 +69,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void blankPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -117,7 +117,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void includeBlankPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -164,7 +164,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void invalidPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -211,7 +211,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void longPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -258,7 +258,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void shortPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -305,7 +305,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void specialCharName() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -353,7 +353,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void longName() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -403,7 +403,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void skipProvince() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -453,7 +453,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void skipDistrict() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -503,7 +503,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void BlankAddress() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -553,7 +553,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void LongAddress() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -605,7 +605,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void validForm() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
@@ -655,7 +655,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void purchaseSuccess() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -689,7 +689,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void purchaseBlankCart() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -717,7 +717,7 @@ public class Payment extends BaseTest {
 
         @Test
         public void changePaymentMethod() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");

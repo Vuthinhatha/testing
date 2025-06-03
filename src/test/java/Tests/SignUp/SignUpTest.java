@@ -22,7 +22,7 @@ public class SignUpTest extends BaseTest {
     @Test
     public void openSignUpAndVerify() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Step 1: Create temp email
             String tempEmail = TempMailUtils.generateRandomEmail();
@@ -89,17 +89,16 @@ public class SignUpTest extends BaseTest {
             Select yearSelect = new Select(yearSelectElement);
             yearSelect.selectByVisibleText("1995"); // select 1995
 
-            //click sign up
-            WebElement signUp= wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
+            // click sign up
+            WebElement signUp = wait.until(ExpectedConditions.elementToBeClickable(By.id("btnRegister")));
             signUp.click();
 
             boolean isInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                By.cssSelector("a.popup-register")));
-        
-        Assert.assertTrue(isInvisible, "Element '.popup-register' should not be visible.");
-        
-        logger.info("Test passed: '.popup-register' is not visible as expected.");
-        
+                    By.cssSelector("a.popup-register")));
+
+            Assert.assertTrue(isInvisible, "Element '.popup-register' should not be visible.");
+
+            logger.info("Test passed: '.popup-register' is not visible as expected.");
 
         } catch (Exception e) {
             e.printStackTrace();

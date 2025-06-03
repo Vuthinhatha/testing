@@ -24,7 +24,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addToCartValid() {
                 String searchString = "sữa rửa mặt";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -106,7 +106,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addFromHomepage() {
                 // String searchString = "sữa rửa mặt";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -198,7 +198,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addMoreSameProduct() {
                 String searchString = "Dầu gội khô";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -280,7 +280,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addMoreUniqueToCart() {
                 String searchString = "sữa rửa mặt";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -335,7 +335,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addToCartWithVariant() {
                 String searchString = "sữa rửa mặt";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -411,7 +411,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void deleteFromCart() {
                 String titleText = "";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -448,7 +448,7 @@ public class AddToCart extends BaseTest {
         @Test
         public void addToCartNoLogin() {
                 String searchString = "sữa rửa mặt";
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         SearchUtil.search(driver, searchString);
@@ -501,7 +501,7 @@ public class AddToCart extends BaseTest {
 
         @Test
         public void clickToCartNoLogin() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
 
@@ -527,7 +527,7 @@ public class AddToCart extends BaseTest {
 
         @Test
         public void reduceQuantity() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
@@ -567,7 +567,7 @@ public class AddToCart extends BaseTest {
 
         @Test
         public void updateQuantity() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");

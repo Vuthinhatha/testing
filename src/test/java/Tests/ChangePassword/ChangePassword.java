@@ -25,7 +25,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -70,7 +70,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -115,7 +115,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -160,7 +160,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -205,7 +205,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -250,7 +250,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -295,7 +295,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -340,7 +340,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -385,7 +385,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -430,7 +430,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -475,7 +475,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -520,7 +520,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));
@@ -565,7 +565,7 @@ public class ChangePassword extends BaseTest {
                 try {
                         ChangePasswordSetUp.changePassword(driver, username, password);
 
-                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+                        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                         WebElement oldPasswordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                                         By.id("password")));

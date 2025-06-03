@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public class ChangePasswordSetUp {
     public static void changePassword(WebDriver driver, String username, String password) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Đăng nhập
         try {
