@@ -6,7 +6,7 @@
     </listeners>
     <test name="LoginTests">
         <classes>
-            <class name="Tests.LogIn.Login"/>
+            <class name="Tests.Cart.AddToCart"/>
         </classes>
     </test>
 </suite>

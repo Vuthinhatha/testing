@@ -36,7 +36,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -67,7 +67,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Vui lòng nhập mật khẩu";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -98,7 +98,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -129,7 +129,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -160,7 +160,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Vui lòng nhập mật khẩu";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -191,7 +191,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Vui lòng nhập mật khẩu";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -312,7 +312,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -463,7 +463,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Vui lòng nhập mật khẩu";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -494,7 +494,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -525,7 +525,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Vui lòng nhập mật khẩu";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
@@ -586,7 +586,7 @@ public class Login extends BaseTest {
                     By.cssSelector(".showMessageError .alert.alert-danger")));
 
             String actualMessage = errorElement.getText().trim();
-            String expectedMessage = "Tên đăng nhập không khớp !";
+            String expectedMessage = "Tên đăng nhập hoặc mật khẩu không khớp !";
 
             Assert.assertEquals(actualMessage, expectedMessage,
                     "Thông báo lỗi không đúng. Mong đợi: '" + expectedMessage + "', Thực tế: '" + actualMessage + "'");
