@@ -209,7 +209,7 @@ public class AddToCart extends BaseTest {
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
-                        LoginSetup.login(driver, "0966265795", "Nhatha1112@");
+                        LoginSetup.login(driver, "Mvu150325@gmail.com", "123456");
                         SearchUtil.search(driver, searchString);
                         logger.info("Search performed successfully with term: {}", searchString);
                         // Chờ danh sách sản phẩm xuất hiện
@@ -350,7 +350,7 @@ public class AddToCart extends BaseTest {
 
         @Test
         public void addToCartWithVariant() {
-                String searchString = "sữa rửa mặt";
+                String searchString = "Nước tẩy trang";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
@@ -430,7 +430,7 @@ public class AddToCart extends BaseTest {
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
-                        LoginSetup.login(driver, "0966265795", "Nhatha1112@");
+                        LoginSetup.login(driver, "Mvu070225@gmail.com", "123456");
                         // Chờ danh sách sản phẩm xuất hiện
                         wait.until(ExpectedConditions.elementToBeClickable(
                                         By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']")))
@@ -543,7 +543,7 @@ public class AddToCart extends BaseTest {
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
                 try {
-                        LoginSetup.login(driver, "0966265795", "Nhatha1112@");
+                        LoginSetup.login(driver, "Mvu130225@gmail.com", "123456");
                         // Chờ danh sách sản phẩm xuất hiện
                         wait.until(ExpectedConditions.elementToBeClickable(
                                         By.xpath("//a[@aria-label='Cart Nav']"))).click();

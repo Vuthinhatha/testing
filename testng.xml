@@ -6,7 +6,7 @@
     </listeners>
     <test name="LoginTests">
         <classes>
-            <class name="Tests.Booking.Booking"/>
+            <class name="Tests.Pay.Payment"/>
         </classes>
     </test>
 </suite>

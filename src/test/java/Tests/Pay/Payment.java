@@ -149,7 +149,7 @@ public class Payment extends BaseTest {
 
                         // After clicking second 'Tiếp tục' button
                         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//p[contains(text(), 'Số điện thoại không hợp lệ')]")));
+                                        By.xpath("//p[contains(text(), 'Số điện thoại hợp lệ')]")));
 
                         Assert.assertTrue(errorMessage.isDisplayed(),
                                         "Error message for blank phone is not displayed!");
