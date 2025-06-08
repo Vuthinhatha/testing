@@ -51,12 +51,16 @@ public class AddToCart extends BaseTest {
                         logger.info("First product scrolled into view successfully");
                         System.out.println("First product scrolled into view successfully");
 
+                        Thread.sleep(2000);
+
                         // Click sản phẩm
                         wait.until(ExpectedConditions.visibilityOf(firstProduct)).click();
                         // wait.until(ExpectedConditions.visibilityOf(firstProduct)).click();
 
                         logger.info("First product clicked successfully");
                         System.out.println("First product clicked successfully");
+
+                        Thread.sleep(2000);
 
                         // Lấy title sản phẩm
                         WebElement title = driver
@@ -138,7 +142,9 @@ public class AddToCart extends BaseTest {
                         JavascriptExecutor js = (JavascriptExecutor) driver;
 
                         // Scroll down by 500 pixels vertically
-                        js.executeScript("window.scrollBy(0, 500);");
+                        js.executeScript("window.scrollBy(0, 1500);");
+
+                        Thread.sleep(2000);
 
                         WebElement firstItem = driver
                                         .findElement(By.xpath("(//div[contains(@class, 'item_goiy')])[1]"));
@@ -149,6 +155,8 @@ public class AddToCart extends BaseTest {
 
                         logger.info("First product clicked successfully");
                         System.out.println("First product clicked successfully");
+
+                        Thread.sleep(2000);
 
                         // Lấy title sản phẩm
                         WebElement title = driver
@@ -225,9 +233,13 @@ public class AddToCart extends BaseTest {
                         logger.info("First product scrolled into view successfully");
                         System.out.println("First product scrolled into view successfully");
 
+                        Thread.sleep(2000);
+
                         // Click sản phẩm
                         wait.until(ExpectedConditions.visibilityOf(firstProduct)).click();
                         // wait.until(ExpectedConditions.visibilityOf(firstProduct)).click();
+
+                        Thread.sleep(2000);
 
                         // Lấy title sản phẩm
                         WebElement title = driver
@@ -307,10 +319,14 @@ public class AddToCart extends BaseTest {
                         logger.info("First product scrolled into view successfully");
                         System.out.println("First product scrolled into view successfully");
 
+                        Thread.sleep(2000);
+
                         // Click sản phẩm
                         wait.until(ExpectedConditions.visibilityOf(firstProduct)).click();
                         logger.info("First product clicked successfully");
                         System.out.println("First product clicked successfully");
+
+                        Thread.sleep(2000);
 
                         // Thêm vào giỏ hàng
                         WebElement addToCartButton = wait.until(ExpectedConditions.elementToBeClickable(
@@ -318,7 +334,7 @@ public class AddToCart extends BaseTest {
                         addToCartButton.click();
                         // ✅ Wait for success message
                         WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//div[contains(text(), 'Sản phẩm chỉ được mua tối đa 1')]")));
+                                        By.xpath("//div[contains(text(), 'Sản phẩm chỉ được mua tối đa là 1')]")));
 
                         // ✅ Assertion to verify
                         Assert.assertTrue(successMessage.isDisplayed(), "Success message not displayed.");
@@ -417,23 +433,21 @@ public class AddToCart extends BaseTest {
                         LoginSetup.login(driver, "0966265795", "Nhatha1112@");
                         // Chờ danh sách sản phẩm xuất hiện
                         wait.until(ExpectedConditions.elementToBeClickable(
-                                        By.xpath("//a[@aria-label='Cart Nav']"))).click();
+                                        By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']")))
+                                        .click();
 
-                        // XPath to find the <tr> containing the product title text inside <a> or inside
-                        // .block_info_item_sp a
-                        String xpath = "//tr[.//a[contains(text(),'" + titleText + "')]]//button[@aria-label='Xóa']";
+                        Thread.sleep(2000);
 
-                        // Find delete button for that product row
-                        WebElement deleteBtn = driver.findElement(By.xpath(xpath));
-
-                        // Click the delete button
+                        // Wait for delete button to be visible and click it
+                        WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                                        By.xpath("//button[contains(., 'Xóa')]")));
                         deleteBtn.click();
 
-                        // Optional short wait if needed for UI update
-                        Thread.sleep(500); // or better use explicit wait for some condition
+                        // Wait for the delete button to disappear (row deleted)
+                        boolean isGone = wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                                        By.xpath("//button[contains(., 'Xóa')]")));
 
-                        // Verify the row is removed
-                        Assert.assertFalse(deleteBtn.isDisplayed(), "Cart row should be removed");
+                        Assert.assertTrue(isGone, "Cart row should be removed");
 
                         logger.info("Product deleted from cart successfully");
                         System.out.println("Product deleted from cart successfully");
@@ -442,7 +456,6 @@ public class AddToCart extends BaseTest {
                         logger.error("Delete from cart failed: {}", e.getMessage());
                         Assert.fail("Delete from cart failed: " + e.getMessage());
                 }
-
         }
 
         @Test
