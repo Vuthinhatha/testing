@@ -263,7 +263,7 @@ public class Booking extends BaseTest {
 
             // Wait and get the error message element
             WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//div[contains(text(), 'Vui lòng nhập số điện thoại !')]")));
+                    By.xpath("//div[contains(text(), 'Vui lòng nhập họ tên !')]")));
 
             // Assertion
             Assert.assertTrue(errorElement.isDisplayed(), "Error message not displayed.");
@@ -459,6 +459,7 @@ public class Booking extends BaseTest {
             Assert.fail("Booking test failed: " + e.getMessage());
         }
     }
+
 
     @Test
     public void noSelectDate() {
