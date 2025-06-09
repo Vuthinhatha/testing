@@ -426,6 +426,39 @@ public class Booking extends BaseTest {
         }
     }
 
+    @Test
+    public void serviceNotAllowMoreThan255Characters() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        try {
+            LoginSetup.login(driver, "0966265795", "Nhatha1112@");
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(), 'Đặt Hẹn')]")))
+                    .click();
+
+            WebElement secondSlide = driver.findElement(By.xpath("//ul[@class='slides']/li[2]"));
+            secondSlide.click();
+
+            // Wait for service input and clear it
+            WebElement serviceInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("service_note")));
+            serviceInput.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+            String enteredValue = serviceInput.getAttribute("value");
+            System.out.println("Value in service input: " + enteredValue);
+
+            // Assert it only allows 10 digits
+            Assert.assertEquals(enteredValue.length(), 255, "Service input accepts more than 255 characters!");
+            Assert.assertEquals(enteredValue,
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "Service input value is incorrect!");
+            // Click the booking button again
+            // wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Đặt hẹn')]")))
+            //         .click();
+
+        } catch (Exception e) {
+            logger.error("Booking test failed: {}", e.getMessage());
+            Assert.fail("Booking test failed: " + e.getMessage());
+        }
+    }
     // fail
     @Test
     public void specialCharacterService() {

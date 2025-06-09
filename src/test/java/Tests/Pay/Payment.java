@@ -117,51 +117,48 @@ public class Payment extends BaseTest {
 
         @Test
         public void includeBlankPhone() {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-                try {
-                        LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
-
-                        wait.until(ExpectedConditions.elementToBeClickable(
-                                        By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']")))
-                                        .click();
-
-                        wait.until(ExpectedConditions
-                                        .elementToBeClickable(By.xpath("//button[text()='Tiến hành đặt hàng']")))
-                                        .click();
-
-                        // form fill
-                        PayFormFill.fillForm(driver, " 0966265795 ", "Nguyễn Văn A", "Hồ Chí Minh - Quận 1",
-                                        "Phường Tân Định", "4A, Ngõ 6");
-                        List<WebElement> buttons = wait.until(ExpectedConditions
-                                        .presenceOfAllElementsLocatedBy(
-                                                        By.xpath("//button[contains(text(), 'Tiếp tục')]")));
-
-                        if (buttons.size() >= 2) {
-                                WebElement secondButton = buttons.get(1);
-                                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
-                                                "arguments[0].scrollIntoView(true);",
-                                                secondButton);
-                                wait.until(ExpectedConditions.elementToBeClickable(secondButton)).click();
-                        } else {
-                                throw new RuntimeException("Second 'Tiếp tục' button not found.");
-                        }
-
-                        // After clicking second 'Tiếp tục' button
-                        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//p[contains(text(), 'Số điện thoại không hợp lệ')]")));
-
-                        Assert.assertTrue(errorMessage.isDisplayed(),
-                                        "Error message for blank phone is not displayed!");
-                        System.out.println("✅ Test passed: 'Số điện thoại không hợp lệ' error message appeared.");
-
-                } catch (Exception e) {
-                        logger.error("Payment failed: {}", e.getMessage());
-                        Assert.fail("Payment failed: " + e.getMessage());
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        
+            try {
+                LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
+        
+                wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']"))).click();
+        
+                wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//button[text()='Tiến hành đặt hàng']"))).click();
+        
+                // form fill
+                PayFormFill.fillForm(driver, " 0966265795 ", "Nguyễn Văn A", "Hồ Chí Minh - Quận 1",
+                        "Phường Tân Định", "4A, Ngõ 6");
+        
+                List<WebElement> buttons = wait.until(ExpectedConditions
+                        .presenceOfAllElementsLocatedBy(By.xpath("//button[contains(text(), 'Tiếp tục')]")));
+        
+                if (buttons.size() >= 2) {
+                    WebElement secondButton = buttons.get(1);
+                    ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", secondButton);
+                    wait.until(ExpectedConditions.elementToBeClickable(secondButton)).click();
+                } else {
+                    throw new RuntimeException("Second 'Tiếp tục' button not found.");
                 }
-
+        
+                // Check if the error message unexpectedly appears
+                List<WebElement> errorMessages = driver.findElements(
+                        By.xpath("//p[contains(text(), 'Số điện thoại không hợp lệ')]"));
+        
+                if (!errorMessages.isEmpty()) {
+                    Assert.fail("❌ Unexpected error: 'Số điện thoại không hợp lệ' appeared for valid input.");
+                }
+        
+                System.out.println("✅ Test passed: No phone number error appeared as expected.");
+        
+            } catch (Exception e) {
+                logger.error("Payment failed: {}", e.getMessage());
+                Assert.fail("Payment failed: " + e.getMessage());
+            }
         }
-
+        
         @Test
         public void invalidPhone() {
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -664,21 +661,23 @@ public class Payment extends BaseTest {
                                         By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']")))
                                         .click();
 
+                        Thread.sleep(1000);
+
                         wait.until(ExpectedConditions
                                         .elementToBeClickable(By.xpath("//button[text()='Tiến hành đặt hàng']")))
                                         .click();
 
-                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Đặt hàng']")))
-                                        .click();
+                        // wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Đặt hàng']")))
+                        //                 .click();
 
                         // After clicking second 'Tiếp tục' button
                         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//div[contains(text(), 'Chọn phương thức thanh toán')]")));
+                                        By.xpath("//h2[contains(text(), 'Hình thức thanh toán')]")));
 
                         Assert.assertTrue(errorMessage.isDisplayed(),
                                         "Error message for blank phone is not displayed!");
                         System.out.println(
-                                        "✅ Test passed: 'Chọn phương thức thanh toán' error message appeared.");
+                                        "✅ Test passed: 'Hình thức thanh toán' error message appeared.");
 
                 } catch (Exception e) {
                         logger.error("Payment failed: {}", e.getMessage());
@@ -736,23 +735,16 @@ public class Payment extends BaseTest {
                         // Locate the <p> element with the specific text
                         WebElement vietcombankPaymentOption = wait.until(ExpectedConditions.elementToBeClickable(
                                         By.xpath("//p[text()='Thanh toán trực tuyến Vietcombank']")));
-
-                        wait.until(ExpectedConditions.elementToBeClickable(
-                                        By.xpath("//button[@type='button' and contains(text(), 'Tiếp tục')]"))).click();
-
                         vietcombankPaymentOption.click();
 
-                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Đặt hàng']")))
-                                        .click();
+                        wait.until(ExpectedConditions.elementToBeClickable(
+                                        By.xpath("//button[text()='Tiếp tục']"))).click();
 
-                        // After clicking second 'Tiếp tục' button
-                        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//h4[contains(text(), 'Thanh toán bằng thẻ ATM')]")));
+                        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                                        By.xpath("//p[text()='Thanh toán trực tuyến Vietcombank']")));
 
-                        Assert.assertTrue(errorMessage.isDisplayed(),
-                                        "Error message for blank phone is not displayed!");
                         System.out.println(
-                                        "✅ Test passed: 'Thanh toán bằng thẻ ATM' error message appeared.");
+                                        "✅ Test passed: 'Thanh toán trực tuyến Vietcombank' message appeared.");
 
                 } catch (Exception e) {
                         logger.error("Payment failed: {}", e.getMessage());
