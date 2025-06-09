@@ -117,7 +117,6 @@ public class Payment extends BaseTest {
 
         @Test
         public void includeBlankPhone() {
-<<<<<<< HEAD
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
             try {
@@ -142,49 +141,6 @@ public class Payment extends BaseTest {
                     wait.until(ExpectedConditions.elementToBeClickable(secondButton)).click();
                 } else {
                     throw new RuntimeException("Second 'Tiếp tục' button not found.");
-=======
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-                try {
-                        LoginSetup.login(driver, "337lvxje@chefalicious.com", "123456");
-
-                        wait.until(ExpectedConditions.elementToBeClickable(
-                                        By.xpath("//img[@src='https://media.hcdn.vn/hsk/icon/icon_header__cart.png']")))
-                                        .click();
-
-                        wait.until(ExpectedConditions
-                                        .elementToBeClickable(By.xpath("//button[text()='Tiến hành đặt hàng']")))
-                                        .click();
-
-                        // form fill
-                        PayFormFill.fillForm(driver, " 0966265795 ", "Nguyễn Văn A", "Hồ Chí Minh - Quận 1",
-                                        "Phường Tân Định", "4A, Ngõ 6");
-                        List<WebElement> buttons = wait.until(ExpectedConditions
-                                        .presenceOfAllElementsLocatedBy(
-                                                        By.xpath("//button[contains(text(), 'Tiếp tục')]")));
-
-                        if (buttons.size() >= 2) {
-                                WebElement secondButton = buttons.get(1);
-                                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
-                                                "arguments[0].scrollIntoView(true);",
-                                                secondButton);
-                                wait.until(ExpectedConditions.elementToBeClickable(secondButton)).click();
-                        } else {
-                                throw new RuntimeException("Second 'Tiếp tục' button not found.");
-                        }
-
-                        // After clicking second 'Tiếp tục' button
-                        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                                        By.xpath("//p[contains(text(), 'Số điện thoại hợp lệ')]")));
-
-                        Assert.assertTrue(errorMessage.isDisplayed(),
-                                        "Error message for blank phone is not displayed!");
-                        System.out.println("✅ Test passed: 'Số điện thoại không hợp lệ' error message appeared.");
-
-                } catch (Exception e) {
-                        logger.error("Payment failed: {}", e.getMessage());
-                        Assert.fail("Payment failed: " + e.getMessage());
->>>>>>> 023e04a34bc03c436c98e6ca06dcb454e37d3419
                 }
         
                 // Check if the error message unexpectedly appears
