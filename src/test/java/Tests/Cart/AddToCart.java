@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 public class AddToCart extends BaseTest {
         private static final Logger logger = LogManager.getLogger(AddToCart.class);
 
-        @Test
+        @Test(priority = 0)
         public void clickToCartNoLogin() {
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -46,7 +46,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 1)
         public void addToCartValid() {
                 String searchString = "sữa rửa mặt";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -132,7 +132,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 2)
         public void addMoreSameProduct() {
                 String searchString = "Dầu gội khô";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -218,7 +218,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 3)
         public void addMoreUniqueToCart() {
                 String searchString = "sữa rửa mặt";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -277,7 +277,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 4)
         public void reduceQuantity() {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
@@ -324,7 +324,7 @@ public class AddToCart extends BaseTest {
             }
         }
         
-        @Test
+        @Test(priority = 5)
         public void increaseQuantity() {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
@@ -371,7 +371,7 @@ public class AddToCart extends BaseTest {
             }
         }
           
-        @Test
+        @Test(priority = 6)
         public void deleteFromCart() {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
@@ -408,7 +408,7 @@ public class AddToCart extends BaseTest {
             }
         }
         
-        @Test
+        @Test(priority = 7)
         public void addToCartNoLogin() {
                 String searchString = "sữa rửa mặt";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -464,7 +464,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 8)
         public void addToCartWithVariant() {
                 String searchString = "nước tẩy trang";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -502,7 +502,8 @@ public class AddToCart extends BaseTest {
 
                         logger.info("First product clicked successfully");
                         System.out.println("First product clicked successfully");
-                        Thread.sleep(2000);
+
+                        Thread.sleep(3000);
 
                         wait.until(ExpectedConditions.elementToBeClickable(
                                         By.xpath("//a[text()='140ml']"))).click();
@@ -534,7 +535,7 @@ public class AddToCart extends BaseTest {
 
         }
 
-        @Test
+        @Test(priority = 9)
         public void addFromHomepage() {
                 // String searchString = "sữa rửa mặt";
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
