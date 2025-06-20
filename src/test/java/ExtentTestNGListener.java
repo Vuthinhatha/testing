@@ -13,6 +13,8 @@ import org.testng.ITestResult;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 public class ExtentTestNGListener implements ITestListener {
@@ -21,8 +23,23 @@ public class ExtentTestNGListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter spark = new ExtentSparkReporter("target/extent-report.html");
-        spark.config().setReportName("Login Test Report");
+        // Generate a timestamp for unique report naming
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String reportPath = "target/reports/ExtentReport_" + timeStamp + ".html";
+        
+        // Create directories if they don't exist
+        File reportDir = new File("target/reports");
+        File screenshotDir = new File("target/screenshots");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
+        }
+        if (!screenshotDir.exists()) {
+            screenshotDir.mkdirs();
+        }
+
+        // Initialize ExtentSparkReporter with unique report path
+        ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
+        spark.config().setReportName("Login Test Report - " + timeStamp);
         spark.config().setDocumentTitle("TestNG Extent Report");
         extent = new ExtentReports();
         extent.attachReporter(spark);
@@ -45,15 +62,24 @@ public class ExtentTestNGListener implements ITestListener {
         ExtentTest extentTest = test.get();
         extentTest.log(Status.FAIL, "Test failed: " + result.getThrowable().getMessage());
         try {
+            // Retrieve WebDriver instance
             WebDriver driver = (WebDriver) result.getTestClass().getRealClass()
                     .getSuperclass().getDeclaredField("driver").get(result.getInstance());
+            
+            // Generate unique screenshot file name
             String fileName = "screenshot-" + UUID.randomUUID() + ".png";
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File destination = new File("target/screenshots/" + fileName);
+            
+            // Copy screenshot to destination
             FileUtils.copyFile(screenshot, destination);
-            extentTest.fail("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(fileName).build());
+            
+            // Attach screenshot to report with relative path
+            extentTest.fail("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath("../screenshots/" + fileName).build());
+        } catch (NoSuchFieldException | IllegalAccessException | IOException e) {
+            extentTest.log(Status.WARNING, "Failed to capture or attach screenshot: " + e.getMessage());
         } catch (Exception e) {
-            extentTest.log(Status.WARNING, "Failed to capture screenshot: " + e.getMessage());
+            extentTest.log(Status.WARNING, "Unexpected error during screenshot capture: " + e.getMessage());
         }
     }
 
